@@ -8,10 +8,24 @@ public class Main {
         System.out.println("==Sovellus käynnistyi==");
 
         //Työ2
-        MinunTehtava task = new MinunTehtava();
-        task.excecuteTask();
+        //MinunTehtava task = new MinunTehtava(); // Child Thread / Worker Thread
+        //task.excecuteTask();
+        //task.start(); // --> Käynnistää sisäisesti run-metodin
+
+
+        new Thread(new MinunTehtava()).start();
+
+        //Thread sinunTehtava = new Thread(new SinunTehtava());
+        //sinunTehtava.start();
+
+        new Thread(new SinunTehtava()).start();
 
         //Ennenkuin Työ2 on tehty, alla oleva koodi on waiting-tilassa eikä sitä suoriteta
+        //Jos sovellus tekee kauan kestävää tehtävää, esim. useita dokumentteja tulsotetaan
+        //Tälläin OS/JVM tulee antaa viesti, että ohjelma ei vastaa
+        //Sovelluksessa havaitaan jotain hidasta toimintaa --> Sovellus näyttää jumittavan
+
+
 
         //Työ3
         //Printtaa dokumentteja
